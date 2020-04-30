@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .forms import RegisterForm
-
+from login.views import login
 def user_register(request):
     # if this is a POST request we need to process the form data
     template = 'user/register.html'
@@ -43,7 +43,7 @@ def user_register(request):
                 login(request, user)
                
                 # redirect to accounts page:
-                return HttpResponseRedirect('/user/account')
+                return HttpResponseRedirect('/user/register/')
 
    # No post data availabe, let's just show the page.
     else:
